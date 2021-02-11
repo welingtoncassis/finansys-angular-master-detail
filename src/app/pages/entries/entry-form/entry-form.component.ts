@@ -8,6 +8,8 @@ import { EntryService } from '../shared/entry.service';
 import { switchMap } from 'rxjs/operators';
 
 import toastr from "toastr";
+import { Category } from '../../categories/shared/category.model';
+import { CategoryService } from '../../categories/shared/category.service';
 
 @Component({
   selector: 'app-entry-form',
@@ -22,6 +24,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   serverErrorMessages: string[] = null;
   submittingForm: boolean = false;
   entry: Entry = new Entry();
+  categories: Array<Category>;
 
   imaskConfig = {
     mask: Number,
@@ -48,6 +51,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
 
   constructor(
     private entryService: EntryService,
+    private categoryService: CategoryService,
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder
@@ -58,6 +62,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
     this.setCurrentAction();
     this.buildEntryForm();
     this.loadEntry();
+    this.loadCategories();
   }
 
   ngAfterContentChecked(): void {
@@ -71,6 +76,17 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
       this.createEntry();
     else
       this.updateEntry();
+  }
+
+  get typeOptions(): Array<any> {
+    return Object.entries(Entry.types).map(
+      ([value, text]) => {
+        return {
+          text,
+          value
+        }
+      }
+    )
   }
 
   private setCurrentAction() {
@@ -106,6 +122,12 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
         error => alert('Ocorreu um erro no servidor')
       )
     }
+  }
+
+  private loadCategories() {
+    this.categoryService.getAll().subscribe(
+      categories => this.categories = categories
+    )
   }
 
   private setPageTitle() {
