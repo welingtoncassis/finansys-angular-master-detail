@@ -3,11 +3,11 @@ import { CategoryService } from '../shared/category.service';
 import { Category } from '../shared/category.model';
 
 @Component({
-  selector: 'app-categoty-list',
-  templateUrl: './categoty-list.component.html',
-  styleUrls: ['./categoty-list.component.css']
+  selector: 'app-category-list',
+  templateUrl: './category-list.component.html',
+  styleUrls: ['./category-list.component.css']
 })
-export class CategotyListComponent implements OnInit {
+export class CategoryListComponent implements OnInit {
 
   categories: Category[] = []
 

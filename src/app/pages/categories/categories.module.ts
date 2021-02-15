@@ -4,11 +4,11 @@ import { SharedModule } from '../../shared/shared.module';
 
 import { CategoriesRoutingModule } from './categories-routing.module';
 
-import { CategotyListComponent } from './categoty-list/categoty-list.component';
-import { CategotyFormComponent } from './categoty-form/categoty-form.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryFormComponent } from './category-form/category-form.component';
 
 @NgModule({
-  declarations: [CategotyListComponent, CategotyFormComponent],
+  declarations: [CategoryListComponent, CategoryFormComponent],
   imports: [
     SharedModule,
     CategoriesRoutingModule

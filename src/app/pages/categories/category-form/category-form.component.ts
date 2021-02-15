@@ -9,11 +9,11 @@ import { switchMap } from 'rxjs/operators';
 
 import toastr from "toastr";
 @Component({
-  selector: 'app-categoty-form',
-  templateUrl: './categoty-form.component.html',
-  styleUrls: ['./categoty-form.component.css']
+  selector: 'app-category-form',
+  templateUrl: './category-form.component.html',
+  styleUrls: ['./category-form.component.css']
 })
-export class CategotyFormComponent implements OnInit, AfterContentChecked {
+export class CategoryFormComponent implements OnInit, AfterContentChecked {
 
   currentAction: string; //new || edit
   categoryForm: FormGroup;
