@@ -10,3 +10,11 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Módulo Core
+
+Componentes, Models, Guards e Service que devem ser instanciados uma só vez(singleton) que são OBRIGATÓRIOS carregar no projeto.
+
+## Módulo Shared
+
+Componentes, Models, Guards e Services reutilizáveis que NÃO SÃO OBRIGATÓRIOS carregar no projeto.
