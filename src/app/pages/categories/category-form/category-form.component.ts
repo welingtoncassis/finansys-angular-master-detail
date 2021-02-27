@@ -90,7 +90,7 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
   }
 
   private createCategory() {
-    const category: Category = Object.assign(new Category, this.categoryForm.value);
+    const category: Category = Category.fromJson(this.categoryForm.value);
     this.categoryService.create(category)
     .subscribe(
       res => this.actionsForSucess(res),
@@ -99,7 +99,7 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
   }
 
   private updateCategory() {
-    const category: Category = Object.assign(new Category, this.categoryForm.value);
+    const category: Category = Category.fromJson(this.categoryForm.value);
     this.categoryService.update(category)
     .subscribe(
       res => this.actionsForSucess(res),
